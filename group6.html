@@ -1,0 +1,568 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>The Class</title>
+	<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap" rel="stylesheet">
+	<style>
+
+		body{
+				background-image: url(img/background2.jpg);
+				
+		}
+
+		.hi-slide{
+				position: relative;
+				width: 754px;
+				height: 292px;
+				border-radius: 50px;
+				margin: 115px auto 0;
+		}
+
+		.hi-slide .hi-next,
+			.hi-slide .hi-prev{
+					position: absolute;
+					top : 50%;
+					width: 40px;
+					height: 40px;
+					margin-top: -20px;
+					border-radius: 50px;
+					line-height: 40px;
+					text-align: center;
+					cursor: pointer;
+					background-color: white;
+					color : black;
+					transition: all 1.5s;
+					font-size: 20px; 
+					font-weight: bold;
+
+			}
+
+			.hi-slide .hi-next:hover,
+			.hi-slide .hi-prev:hover{
+
+				opacity: 1;
+				background-color: white; 
+			
+			}
+
+			.hi-slide .hi-prev{
+				left:-70px;
+			}
+
+			.hi-slide .hi-prev::before{
+				content: '<';
+			}
+			.hi-slide .hi-next{
+				right:-70px;
+			}
+
+			.hi-slide .hi-next::before{
+				content: '>';
+			}
+
+			.hi-slide > ul{
+				list-style: none;
+				position: relative;
+				width:754px;
+				height: 292px;
+				margin:0;
+				padding: 0;
+			}
+
+			.hi-slide > ul > li{
+				overflow: hidden;
+				position: absolute;
+				z-index: 0;
+				left: 377px;
+				top:147px;
+				width: 0;
+				height: 0;
+				margin: 0;
+				padding: 0;
+				border: 3px solid white;
+				cursor: pointer;
+				background-color: #333; 
+			}
+
+			.hi-slide > ul > li > img{
+				width: 100%;
+				height: 100%;
+				background-position: center;
+			}
+
+			.names1{
+				font-family: 'Indie Flower', cursive;
+				font-size: 60px;
+				font-weight: bold;
+				position: absolute;
+				top:60px;
+				left:100px;
+				transform: rotate(-15deg);
+				color:white;
+			}
+			.names2{
+				font-family: 'Indie Flower', cursive;
+				font-size: 60px;
+				font-weight: bold;
+				position: absolute;
+				top:100px;
+				right:180px;
+				transform: rotate(15deg);
+				color:red;
+			}
+			.names3{
+				font-family: 'Indie Flower', cursive;
+				font-size: 60px;
+				font-weight: bold;
+				position: absolute;
+				top:400px;
+				right:380px;
+				transform: rotate(-30deg);
+				color:green;
+			}
+			.names4{
+				font-family: 'Indie Flower', cursive;
+				font-size: 60px;
+				font-weight: bold;
+				position: absolute;
+				top:400px;
+				left:120px;
+				transform: rotate(25deg);
+				color:#F0E68C;
+			}
+			.names5{
+				font-family: 'Indie Flower', cursive;
+				font-size: 60px;
+				font-weight: bold;
+				position: absolute;
+				bottom:80px;
+				left:380px;
+				transform: rotate(15deg);
+				color:red;
+			}
+			.names6{
+				font-family: 'Indie Flower', cursive;
+				font-size: 60px;
+				font-weight: bold;
+				position: absolute;
+				bottom:200px;
+				right:800px;
+				transform: rotate(15deg);
+				color:yellow;
+			}
+			.names7{
+				font-family: 'Indie Flower', cursive;
+				font-size: 60px;
+				font-weight: bold;
+				position: absolute;
+				bottom:200px;
+				right:300px;
+				transform: rotate(15deg);
+				color:cyan;
+			}
+			.next_group{
+				font-family: 'Indie Flower', cursive;
+				font-size: 60px;
+				
+				position: absolute;
+				bottom:0px;
+				text-align: center;
+				color: white;
+			}
+			.modal-container{
+			background-color: rgb(0,0,0,0.3);
+			position: fixed;
+			display: flex;
+  			justify-content: center;
+  			align-items: center;
+			top:0;
+			left: 0;
+			opacity: 0;
+			pointer-events: none;
+			width: 100vw;
+			height: 100vh;
+			overflow: auto;
+			transition: opacity 0.3s ease;
+		}
+		.modal-container.show{
+			opacity: 1;
+			pointer-events: auto;
+		}
+
+		.modal{
+			background-color: grey;
+			border-radius: 5px;
+			text-align: center;
+			padding: 30px 60px;
+			width: 600px;
+			max-width: 100%;
+
+
+		}
+		table, th, td {
+  			border: 1px solid black;
+  			
+		}
+		table{
+			width: 100%;
+		}
+		table.center {
+  			margin-left: auto;
+  			margin-right: auto;
+		}
+	</style>
+</head>
+
+<body>
+	<br/>
+	<div class="slide hi-slide" id="slider">
+		<div class="hi-prev">
+		</div>
+		<div class="hi-next">
+		</div>
+		<ul>
+			
+			<li><img src="img/Himani.jpg" alt=""></li>
+			<li><img src="img/Hindanjali.jpg" alt=""></li>
+			<li><img src="img/kaushal.jpg" alt=""></li>
+			<li><img src="img/Lokasis.jpg" alt=""></li>
+			<li><img src="img/Milan.jpeg" alt=""></li>
+			<li><img src="img/Nikshith.jpg" alt=""></li>
+			<li><img src="img/Piyush_46.jpg" alt=""></li>
+		</ul>
+		
+	</div>
+	<h class="names1" id="himani">Himani</h>
+	<h class="names2" id="hindanjali">Hindanjali</h>
+	<h class="names3" id="kaushal">Kaushal</h>
+	<h class="names4" id="lokasis">Lokasis</h>
+	<h class="names5" id="milan">Milan</h>
+	<h class="names6" id="nikshith">Nikshith</h>
+	<h class="names7" id="piyush">Piyush</h>
+
+	<div class="modal-container" id="modal_container">
+		<div class="modal">
+			<h1>Messages</h1>
+			<div id="messages">
+			</div>
+			<button id="close">Close me</button>
+		</div>
+	</div>
+
+
+	<center><h class="next_group"> <a href="group7.html">Next</a></h></center>
+	<script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+	<script src="js/jquery.hislide.js"></script>
+	<script>
+		
+	$('.slide').hiSlide();
+	const modal_container = document.getElementById('modal_container');
+	const close = document.getElementById('close');
+
+	const open1 = document.getElementById('himani');
+	open1.addEventListener('click', () => {
+
+		var myTableDiv = document.getElementById("messages");
+		var table = document.createElement('TABLE');
+    	var tableBody = document.createElement('TBODY');
+
+    	table.border = '1';
+
+    	table.appendChild(tableBody);
+
+    	var heading = new Array();
+    	heading[0] = "From";
+    	heading[1] = "Beautiful Words";
+
+    	var rows = new Array();
+    	rows[0] = new Array("", "");
+    	
+    	
+
+    	var tr = document.createElement('TR');
+    	tableBody.appendChild(tr);
+    	for (i = 0; i < heading.length; i++) {
+        	var th = document.createElement('TH')
+        	th.width = '75';
+       	 	th.appendChild(document.createTextNode(heading[i]));
+        	tr.appendChild(th);
+    	}
+
+    //TABLE ROWS
+    	for (i = 0; i < rows.length; i++) {
+        	var tr = document.createElement('TR');
+        	for (j = 0; j < rows[i].length; j++) {
+           		var td = document.createElement('TD');
+            	td.appendChild(document.createTextNode(rows[i][j]));
+
+            	tr.appendChild(td);
+        	}
+        	tableBody.appendChild(tr);
+    	}  
+    	myTableDiv.appendChild(table);
+
+		modal_container.classList.add('show');
+
+
+		document.getElementById('slider').style.display = "none";
+	})
+
+	const open2 = document.getElementById('hindanjali');
+	open2.addEventListener('click', () => {
+		var myTableDiv = document.getElementById("messages");
+		var table = document.createElement('TABLE');
+    	var tableBody = document.createElement('TBODY');
+
+    	table.border = '1';
+    	table.appendChild(tableBody);
+
+    	var heading = new Array();
+    	heading[0] = "From";
+    	heading[1] = "Beautiful Words";
+
+    	var rows = new Array();
+    	rows[0] = new Array("Naresh", "Thanks for some indirect help in deep learning");
+    	rows[1] = new Array("Ishita", "I've never a person as sweet as her");
+    	rows[2] = new Array("anonymus", "Every time I see you in google meet... Flowers of happiness bloom in every cell of my body... When you join the class.. My heart skips a beat... I am really looking forward to talk with you in person.. If possible a coffee?");
+    	rows[3] = new Array("Abcd", "Love you 3000");
+    	rows[4] = new Array("P..p", "You are the prettiest girl in the class~ tumhara aashiq🌸");
+
+    	var tr = document.createElement('TR');
+    	tableBody.appendChild(tr);
+    	for (i = 0; i < heading.length; i++) {
+        	var th = document.createElement('TH')
+        	th.width = '75';
+       	 	th.appendChild(document.createTextNode(heading[i]));
+        	tr.appendChild(th);
+    	}
+
+    //TABLE ROWS
+    	for (i = 0; i < rows.length; i++) {
+        	var tr = document.createElement('TR');
+        	for (j = 0; j < rows[i].length; j++) {
+           		var td = document.createElement('TD');
+            	td.appendChild(document.createTextNode(rows[i][j]));
+            	tr.appendChild(td);
+        	}
+        	tableBody.appendChild(tr);
+    	}  
+    	myTableDiv.appendChild(table);
+		modal_container.classList.add('show');
+		document.getElementById('slider').style.display = "none";
+	})
+
+	const open3 = document.getElementById('kaushal');
+	open3.addEventListener('click', () => {
+		var myTableDiv = document.getElementById("messages");
+		var table = document.createElement('TABLE');
+    	var tableBody = document.createElement('TBODY');
+
+    	table.border = '1';
+    	table.appendChild(tableBody);
+
+    	var heading = new Array();
+    	heading[0] = "From";
+    	heading[1] = "Beautiful Words";
+
+    	var rows = new Array();
+    	rows[0] = new Array("", "");
+    	
+
+
+    	var tr = document.createElement('TR');
+    	tableBody.appendChild(tr);
+    	for (i = 0; i < heading.length; i++) {
+        	var th = document.createElement('TH')
+        	th.width = '75';
+       	 	th.appendChild(document.createTextNode(heading[i]));
+        	tr.appendChild(th);
+    	}
+
+    //TABLE ROWS
+    	for (i = 0; i < rows.length; i++) {
+        	var tr = document.createElement('TR');
+        	for (j = 0; j < rows[i].length; j++) {
+           		var td = document.createElement('TD');
+            	td.appendChild(document.createTextNode(rows[i][j]));
+            	tr.appendChild(td);
+        	}
+        	tableBody.appendChild(tr);
+    	}  
+    	myTableDiv.appendChild(table);
+		modal_container.classList.add('show');
+		document.getElementById('slider').style.display = "none";
+	})
+
+	const open4 = document.getElementById('lokasis');
+	open4.addEventListener('click', () => {
+		var myTableDiv = document.getElementById("messages");
+		var table = document.createElement('TABLE');
+    	var tableBody = document.createElement('TBODY');
+
+    	table.border = '1';
+    	table.appendChild(tableBody);
+
+    	var heading = new Array();
+    	heading[0] = "From";
+    	heading[1] = "Beautiful Words";
+
+    	var rows = new Array();
+    	rows[0] = new Array("Sayan Chandra", "My only frnd so far with whom I talk in freaking 100% bengali, rare but worthy. The hidden link finder,  We need such good hearts.");
+    	rows[1] = new Array("Vivek Kumar", "Noone can match his sense of humour and wit level.");
+    	rows[2] = new Array("Sukanya", "Bhai tu ek book likh.. it will definitely be the most dark content ever written.");
+    	var tr = document.createElement('TR');
+    	tableBody.appendChild(tr);
+    	for (i = 0; i < heading.length; i++) {
+        	var th = document.createElement('TH')
+        	th.width = '75';
+       	 	th.appendChild(document.createTextNode(heading[i]));
+        	tr.appendChild(th);
+    	}
+
+    //TABLE ROWS
+    	for (i = 0; i < rows.length; i++) {
+        	var tr = document.createElement('TR');
+        	for (j = 0; j < rows[i].length; j++) {
+           		var td = document.createElement('TD');
+            	td.appendChild(document.createTextNode(rows[i][j]));
+            	tr.appendChild(td);
+        	}
+        	tableBody.appendChild(tr);
+    	}  
+    	myTableDiv.appendChild(table);
+		modal_container.classList.add('show');
+		document.getElementById('slider').style.display = "none";
+	})
+
+	const open5 = document.getElementById('milan');
+	open5.addEventListener('click', () => {
+		var myTableDiv = document.getElementById("messages");
+		var table = document.createElement('TABLE');
+    	var tableBody = document.createElement('TBODY');
+
+    	table.border = '1';
+    	table.appendChild(tableBody);
+
+    	var heading = new Array();
+    	heading[0] = "From";
+    	heading[1] = "Beautiful Words";
+
+    	var rows = new Array();
+    	rows[0] = new Array("Apoorva", "ye vivek batra ke seminar share karna band kar , ya jise bhi interest ho use dm kr diya kr");
+
+    	var tr = document.createElement('TR');
+    	tableBody.appendChild(tr);
+    	for (i = 0; i < heading.length; i++) {
+        	var th = document.createElement('TH')
+        	th.width = '75';
+       	 	th.appendChild(document.createTextNode(heading[i]));
+        	tr.appendChild(th);
+    	}
+
+    //TABLE ROWS
+    	for (i = 0; i < rows.length; i++) {
+        	var tr = document.createElement('TR');
+        	for (j = 0; j < rows[i].length; j++) {
+           		var td = document.createElement('TD');
+            	td.appendChild(document.createTextNode(rows[i][j]));
+            	tr.appendChild(td);
+        	}
+        	tableBody.appendChild(tr);
+    	}  
+    	myTableDiv.appendChild(table);
+		modal_container.classList.add('show');
+		document.getElementById('slider').style.display = "none";
+	})
+
+	const open6 = document.getElementById('nikshith');
+	open6.addEventListener('click', () => {
+		var myTableDiv = document.getElementById("messages");
+		var table = document.createElement('TABLE');
+    	var tableBody = document.createElement('TBODY');
+
+    	table.border = '1';
+    	table.appendChild(tableBody);
+
+    	var heading = new Array();
+    	heading[0] = "From";
+    	heading[1] = "Beautiful Words";
+
+    	var rows = new Array();
+    	rows[0] = new Array("", "");
+
+    	var tr = document.createElement('TR');
+    	tableBody.appendChild(tr);
+    	for (i = 0; i < heading.length; i++) {
+        	var th = document.createElement('TH')
+        	th.width = '75';
+       	 	th.appendChild(document.createTextNode(heading[i]));
+        	tr.appendChild(th);
+    	}
+
+    //TABLE ROWS
+    	for (i = 0; i < rows.length; i++) {
+        	var tr = document.createElement('TR');
+        	for (j = 0; j < rows[i].length; j++) {
+           		var td = document.createElement('TD');
+            	td.appendChild(document.createTextNode(rows[i][j]));
+            	tr.appendChild(td);
+        	}
+        	tableBody.appendChild(tr);
+    	}  
+    	myTableDiv.appendChild(table);
+		modal_container.classList.add('show');
+		document.getElementById('slider').style.display = "none";
+	})
+
+	const open7 = document.getElementById('piyush');
+	open7.addEventListener('click', () => {
+		var myTableDiv = document.getElementById("messages");
+		var table = document.createElement('TABLE');
+    	var tableBody = document.createElement('TBODY');
+
+    	table.border = '1';
+    	table.appendChild(tableBody);
+
+    	var heading = new Array();
+    	heading[0] = "From";
+    	heading[1] = "Beautiful Words";
+
+    	var rows = new Array();
+    	rows[0] = new Array("", "");
+    	
+
+    	var tr = document.createElement('TR');
+    	tableBody.appendChild(tr);
+    	for (i = 0; i < heading.length; i++) {
+        	var th = document.createElement('TH')
+        	th.width = '75';
+       	 	th.appendChild(document.createTextNode(heading[i]));
+        	tr.appendChild(th);
+    	}
+
+    //TABLE ROWS
+    	for (i = 0; i < rows.length; i++) {
+        	var tr = document.createElement('TR');
+        	for (j = 0; j < rows[i].length; j++) {
+           		var td = document.createElement('TD');
+            	td.appendChild(document.createTextNode(rows[i][j]));
+            	tr.appendChild(td);
+        	}
+        	tableBody.appendChild(tr);
+    	}  
+    	myTableDiv.appendChild(table);
+		modal_container.classList.add('show');
+		document.getElementById('slider').style.display = "none";
+	})
+
+
+	close.addEventListener('click', () => {
+		modal_container.classList.remove('show');
+		document.getElementById('messages').innerHTML = '';
+		document.getElementById('slider').style.display = "block";
+	})
+	</script>
+</body>
+</html>
